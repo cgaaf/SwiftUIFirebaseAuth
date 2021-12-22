@@ -7,19 +7,19 @@
 
 import SwiftUI
 
-struct AuthenticationContainer<Content: View>: View {
+public struct AuthenticationContainer<Content: View>: View {
     @StateObject var authStateController: AuthenticationStateController
     let authActions: AuthenticationActions
     
     let content: () -> Content
     
-    var body: some View {
+    public var body: some View {
         content()
             .environment(\.authenticationState, authStateController.authenticationState)
             .environment(\.authenticationActions, authActions)
     }
     
-    init(emulated: Bool = false, content: @escaping () -> Content) {
+    public init(emulated: Bool = false, content: @escaping () -> Content) {
         _authStateController = StateObject(wrappedValue: emulated ? .emulated : .live)
         self.authActions = emulated ? .emulated : .live
         self.content = content
