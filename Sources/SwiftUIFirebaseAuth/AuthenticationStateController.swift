@@ -9,8 +9,9 @@ import Foundation
 import FirebaseAuth
 import FirebaseAuthCombineSwift
 
+
 public enum AuthenticationState {
-    case signedIn(User)
+    case signedIn(user: User)
     case signedOut
 }
 
@@ -19,8 +20,8 @@ public class AuthenticationStateController: ObservableObject {
     
     @Published public var authenticationState: AuthenticationState = .signedOut
     
-    public static let live = AuthenticationStateController()
     public static let emulated = AuthenticationStateController(emulated: true)
+    public static let live = AuthenticationStateController()
     
     private init(emulated: Bool = false) {
         auth = Auth.auth()
@@ -34,7 +35,7 @@ public class AuthenticationStateController: ObservableObject {
                     return .signedOut
                 }
                 
-                return .signedIn(user)
+                return .signedIn(user: user)
             }
             .assign(to: &$authenticationState)
     }
