@@ -27,7 +27,7 @@ public struct AuthenticationContainer<Content: View>: View {
     }
 }
 
-extension View {
+public extension View {
     func addAuthentication(emulated: Bool = false) -> some View {
         AuthenticationContainer(emulated: emulated) {
             self

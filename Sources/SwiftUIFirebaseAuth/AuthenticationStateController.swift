@@ -32,5 +32,6 @@ public class AuthenticationStateController: ObservableObject {
                 return .signedIn(user: user)
             }
             .assign(to: &$authenticationState)
+        
     }
 }
