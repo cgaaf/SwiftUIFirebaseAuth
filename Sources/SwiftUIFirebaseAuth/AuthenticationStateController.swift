@@ -11,7 +11,7 @@ import FirebaseAuthCombineSwift
 
 
 public enum AuthenticationState {
-    case signedIn(user: User)
+    case signedIn(user: UserType)
     case signedOut
 }
 
