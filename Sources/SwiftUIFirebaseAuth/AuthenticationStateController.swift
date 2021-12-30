@@ -9,12 +9,6 @@ import Foundation
 import FirebaseAuth
 import FirebaseAuthCombineSwift
 
-
-public enum AuthenticationState {
-    case signedIn(user: UserType)
-    case signedOut
-}
-
 public class AuthenticationStateController: ObservableObject {
     private let auth: Auth
     
