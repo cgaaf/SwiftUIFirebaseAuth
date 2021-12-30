@@ -26,3 +26,11 @@ public struct AuthenticationContainer<Content: View>: View {
         self.content = content
     }
 }
+
+extension View {
+    func addAuthentication(emulated: Bool = false) -> some View {
+        AuthenticationContainer(emulated: emulated) {
+            self
+        }
+    }
+}

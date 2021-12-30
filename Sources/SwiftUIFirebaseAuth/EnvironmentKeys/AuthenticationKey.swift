@@ -21,9 +21,16 @@ public extension EnvironmentValues {
 
 extension Auth {
     static let live: Auth = Auth.auth()
+    
     static let emulated: Auth = {
         let auth = Auth.auth()
         auth.useEmulator(withHost: "localhost", port: 9099)
         return auth
     }()
+    
+    static func emulated(withHost host: String, port: Int) -> Auth {
+        let auth = Auth.auth()
+        auth.useEmulator(withHost: host, port: port)
+        return auth
+    }
 }
