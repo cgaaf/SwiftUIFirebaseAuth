@@ -10,7 +10,7 @@ import FirebaseAuth
 import FirebaseAuthCombineSwift
 
 public class AuthenticationStateController: ObservableObject {
-    private let auth: Auth
+    let auth: Auth
     
     @Published public var authenticationState: AuthenticationState = .signedOut
     
